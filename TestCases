@@ -1,0 +1,161 @@
+#
+#An incomplete list of test cases
+#
+
+#####Test 1
+exit
+
+    RESULT: Exit Success
+#####
+
+
+#####Test 2
+<Ctrl>-d    
+    RESULT: Exit Success
+#####
+
+
+#####Test 3
+ test for empty 
+ and blank commands    
+ exit      
+    RESULT: Result Success
+#####
+
+#####Test 4
+mydash -v   
+    RESULT: Success
+    [mackbryan@onyx p1(master)]$ ./mydash -v
+    Git_version: 877c7e
+    [mackbryan@onyx p1(master)]$
+#####
+
+
+#####Test 5
+export DASH_PROMPT="myprompt:"
+mydash
+exit       
+    RESULT: Exit Success
+#####
+
+
+#####Test 6
+ls
+date
+ls -l -t -t -l
+exit      
+    RESULT: Success and Exit Success
+#####
+
+
+#####Test 7
+vim
+gvim
+exit        
+    RESULT: Success and Exit Success
+####
+
+#####Tes t8
+cd
+pwd
+cd /tmp
+pwd
+cd /home/amit/workspace/mydash/mydash-src/
+pwd
+cd jfdkjfdjfd
+exit       
+    RESULT: Success 
+    mash>cd
+    mash>pwd/home/MackBryan
+    mash>cd /tmp
+    mash>pwd
+    /tmp
+    mash>cd /home/MackBryan/CS453
+    mash>pwd
+    home/MackBryan/CS453
+    mash>cd jfdkjfdjfd
+    mash>pwd
+    /home/MackBryan/CS453
+    mash>exit
+    [mackbryan@onyx p1(master)]$
+#####
+
+#####Test 9
+sleep 2 &
+sleep 2&
+#wait for 2 secs
+<enter>
+exit     
+    RESULT: Success
+    mash>sleep 2 &
+    [1] 964260   sleep 2 &
+    mash>sleep 2 &
+    [2] 964271   sleep 2 &
+    mash>
+    [2]  964271    Done sleep 2 &
+    [1]  964260    Done sleep 2 &
+    mash>
+#####
+
+#####Test 10
+sleep 2 &
+# wait 2 seconds
+<enter>
+sleep 1 &
+# wait 1 second
+<enter>
+exit
+    RESULT: Success
+    mash>sleep 2 &
+    [1] 965477   sleep 2 &
+    mash>
+    [1]  965477    Done sleep 2 &
+    mash>sleep 1 &
+    [1] 965522   sleep 1 &
+    mash>
+    [1]  965522    Done sleep 1 &
+    mash>
+########
+
+
+#####Test 10
+sleep 10 &
+sleep 1 &
+#wait 1 second
+jobs
+#wait till 10 finishes
+jobs
+exit
+    RESULT: Success
+    mash>sleep 10 &
+    [1] 967447   sleep 10 &
+    mash>sleep 1 &
+    [2] 967514   sleep 1 &
+    mash>jobs
+    [2]  967514    Done sleep 1 &
+    [1]  967447    Running sleep 10 &
+    mash>jobs
+    [1]  967447    Done sleep 10 &
+    mash>
+#####
+
+#####Test 11
+sleep 1&
+sleep 10 &
+#wait 1 second
+jobs
+#wait for 10 seconds to finish
+<enter>
+    RESULT: Success
+    mash>sleep 1&
+    [1] 970369   sleep 1&
+    mash>sleep 10 &
+    [2] 970533   sleep 10 &
+    mash>jobs
+    [2]  970533    Running sleep 10 &
+    [1]  970369    Done sleep 1&
+    mash>
+    [2]  970533    Done sleep 10 &
+    mash>
+#####
+

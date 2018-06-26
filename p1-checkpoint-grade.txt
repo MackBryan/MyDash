@@ -1,0 +1,21 @@
+
+Name: MackBryan@u.boisestate.edu
+
+
+Grade:18/20
+
+Proper project layout and makefiles:  ok
+
+Features:
+
+1. (2 points) Filename completion and history:  ok
+2. (2 points) Normal command execution:  ok
+3. (2 points) Handling empty commands:  ok
+4. (2 points) Handling EOF:  ok
+5. (2 points) Exit command:  ok
+6. (2 points) Change Directory command:  ok
+7. (4 points) Create an empty list and link to provided list library:  ok
+8. (4 points) Screenshot of project plan on Trello (named pm.png):  
+		-I had to rename your fiel from pm.PNG to pm.png (as required by the specs) -2
+
+Comments:

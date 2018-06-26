@@ -1,0 +1,119 @@
+
+Name: MackBryan@u.boisestate.edu
+
+Testing: 
+	-Submission quality:  ok
+	-Build/Makefile:   ok
+	-Compiling:   ok
+	-Linking to provided list library: ok
+	-Functional Requirements:
+		-filename completion and command history (5 points):  ok
+		-normal command execution (10 points):  ok
+		-handling empty commands (2 points):    ok
+		-handling EOF (2 points):   ok
+		-handling exit command (2 points):  ok
+		-change directory command (9 points):  
+			-no error message if cd command fails -2
+		-prompt (5 points):  
+			-ok, but no default prompt is confusing -1
+        -show version (5 points): 
+		-background jobs (5 points): 
+        -job list (10 points): 
+        -simple job control (5 points): 
+        -jobs command (5 points):  
+		-other issues: 
+
+Valgrind (20 points):
+	-No errors but there are some memory leaks (as you had already noted) -10
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+amit@localhost p1(p1_branch)]$ !val
+valgrind --leak-check=full --suppressions=valgrind.supp ./mydash 
+==4331== Memcheck, a memory error detector
+==4331== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4331== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4331== Command: ./mydash
+==4331== 
+xyz: ls -l -r -t
+total 256
+-rw------- 1 amit amit    549 Oct  6 05:46 valgrind.supp
+-rw------- 1 amit amit   2342 Oct  6 05:46 TestCases
+-rw------- 1 amit amit   4574 Oct  6 05:46 README.md
+-rw------- 1 amit amit  32845 Oct  6 05:46 pm.png
+-rw------- 1 amit amit    852 Oct  6 05:46 p1-rubric.txt
+-rw------- 1 amit amit    441 Oct  6 05:46 p1-checkpoint-rubric.txt
+-rw------- 1 amit amit    583 Oct  6 05:46 p1-checkpoint-grade.txt
+drwx------ 2 amit amit   4096 Oct  6 05:46 other-progs
+-rw------- 1 amit amit    334 Oct  6 05:46 Makefile
+-rw------- 1 amit amit 105537 Oct  6 05:46 doxygen-config
+drwx------ 2 amit amit   4096 Oct  6 05:46 checkpoint-testfiles
+-rwx------ 1 amit amit   2431 Oct  6 05:46 backpack.sh
+-rwxrwxr-x 1 amit amit  43696 Oct 16 05:10 mydash
+drwx------ 2 amit amit   4096 Oct 16 05:10 mydash-src
+drwxrwxr-x 4 amit amit   4096 Oct 16 05:10 docs
+-rw-rw-r-- 1 amit amit  13557 Oct 16 05:10 doxygen.log
+-rw-rw-r-- 1 amit amit    931 Oct 16 05:14 p1-grade.txt
+xyz: sleep 4 &
+==4331== Conditional jump or move depends on uninitialised value(s)
+==4331==    at 0x4013C9: main (mydash.c:121)
+==4331== 
+[1] 4334   sleep 4 & 
+xyz: sleep 4 &
+[2] 4335   sleep 4 & 
+xyz: sleep 4 &
+[3] 4336   sleep 4 & 
+xyz: sleep 4 &
+[4] 4337   sleep 4 & 
+xyz: 
+[1]  4334    Done sleep 4 & 
+xyz: 
+xyz: jobs
+[4]  4337    Done sleep 4 & 
+[3]  4336    Done sleep 4 & 
+[2]  4335    Done sleep 4 & 
+xyz: exit
+==4331== 
+==4331== HEAP SUMMARY:
+==4331==     in use at exit: 135,159 bytes in 243 blocks
+==4331==   total heap usage: 450 allocs, 207 frees, 301,814 bytes allocated
+==4331== 
+==4331== 8 bytes in 4 blocks are definitely lost in loss record 5 of 55
+==4331==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==4331==    by 0x401B72: parseInput (parseInput.c:19)
+==4331==    by 0x4011E3: main (mydash.c:58)
+==4331== 
+==4331== 72 (24 direct, 48 indirect) bytes in 1 blocks are definitely lost in loss record 21 of 55
+==4331==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==4331==    by 0x54DBCF9: createNode (Node.c:6)
+==4331==    by 0x401EB6: checkBG (checkBG.c:38)
+==4331==    by 0x401256: main (mydash.c:71)
+==4331== 
+==4331== LEAK SUMMARY:
+==4331==    definitely lost: 32 bytes in 5 blocks
+==4331==    indirectly lost: 48 bytes in 2 blocks
+==4331==      possibly lost: 0 bytes in 0 blocks
+==4331==    still reachable: 427 bytes in 17 blocks
+==4331==         suppressed: 134,652 bytes in 219 blocks
+==4331== Reachable blocks (those to which a pointer was found) are not shown.
+==4331== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4331== 
+==4331== For counts of detected and suppressed errors, rerun with: -v
+==4331== Use --track-origins=yes to see where uninitialised values come from
+==4331== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+[amit@localhost p1(p1_branch)]$ 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Source code control use (10 points): 
+	-Need more of a commit history -2
+
+Design & documentation (25 points):
+	-README file (10 points):  ok
+	-Doxygen docs (5 points): 
+		-no javadocs in header files -2
+	-Code organization & style:  ok
+	-Test plan (10 points):   ok
+
+Comments:
+
+Late penalty:
+
+Grade:   105/120
